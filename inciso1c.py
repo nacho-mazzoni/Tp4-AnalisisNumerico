@@ -9,8 +9,14 @@ altura = [10, 60, 55, 70, 40, 50, 30]
 
 splineCubica = interpolate.CubicSpline(distancia, altura)
 
-plt.plot(distancia, altura, label="Datos originales")
+plt.plot(distancia, splineCubica(distancia), label="Datos originales")
 plt.scatter(distancia, altura, label="puntos", color="black")
 plt.xlabel('x')
 plt.ylabel('y')
 plt.show()
+
+#ejercicio e puntos en 75 y 225 para spline
+print("altura en distancia 75 para spline")
+print(splineCubica(75))
+print("altura en distancia 225 para spline")
+print(splineCubica(225))

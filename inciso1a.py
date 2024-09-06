@@ -1,7 +1,7 @@
 import numpy as np 
 import matplotlib.pyplot as plt
 from inciso1b import condicionMatriz
-
+from inciso1e import evaluarPolinomio
 
 distancia = np.linspace(0, 300, 7)
 altura = [10, 60, 55, 70, 40, 50, 30]
@@ -39,8 +39,13 @@ plt.xlabel('x')
 plt.ylabel('y')
 plt.show()
 
-#inciso b Condicion de Matriz de vandermonde
-
-condicionVandermonde = condicionMatriz(matrizVandermonde)
-print(condicionVandermonde)
+#inciso b condicion matriz
+print(condicionMatriz(matrizVandermonde))
 print(np.linalg.cond(matrizVandermonde))
+
+#inciso e valores en las distancias 75 y 225
+print("altura en distancia 75 para matriz de vandermonde")
+print(evaluarPolinomio(coeficientes, 75))
+print("altura en distancia 225 para matriz de vandermonde")
+print(evaluarPolinomio(coeficientes, 225))
+
