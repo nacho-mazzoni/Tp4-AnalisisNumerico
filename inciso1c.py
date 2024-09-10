@@ -7,10 +7,14 @@ from scipy import interpolate
 distancia = np.linspace(0, 300, 7)
 altura = [10, 60, 55, 70, 40, 50, 30]
 
-splineCubica = interpolate.CubicSpline(distancia, altura)
+x = np.linspace(0, 300, 400)
 
-plt.plot(distancia, splineCubica(distancia), label="Datos originales")
-plt.scatter(distancia, altura, label="puntos", color="black")
+splinecubica = interpolate.CubicSpline(distancia, altura)
+
+y = splinecubica(x)
+
+plt.plot(x, y, label="Interpolacion Spline Cubica", color="blue")
+plt.scatter(distancia, altura, color="black")
 plt.xlabel('x')
 plt.ylabel('y')
 plt.show()

@@ -24,15 +24,18 @@ for i in range(coeficientes.shape[0]):
     print(coeficientes[i])
 
 #ecuacion de la recta de interpolacion
-y = coeficientes[6]*(distancia**6) + coeficientes[5]*(distancia**5) + coeficientes[4]*(distancia**4) + coeficientes[3]*(distancia**3) + coeficientes[2]*(distancia**2) + coeficientes[1]*distancia + coeficientes[0]
+def f(x):
+    return coeficientes[6]*(x**6) + coeficientes[5]*(x**5) + coeficientes[4]*(x**4) + coeficientes[3]*(x**3) + coeficientes[2]*(x**2) + coeficientes[1]*x + coeficientes[0]
+
+x = np.linspace(0, 300, 400)
+
+y = f(x)
 
 #recta
-plt.plot(distancia, y, label="interpolacion Vandermonde", color="blue")
+plt.plot(x, y, label="interpolacion Vandermonde", color="blue")
 
 #puntos sobre la recta
 plt.scatter(distancia, altura, label="puntos", color="black")
-
-#supuestamente la grafica queda asi recta porque no hay suficientes puntos de muestra 
 
 plt.title('Recta con puntos')
 plt.xlabel('x')
