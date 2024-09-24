@@ -132,7 +132,7 @@ mejor_individuo = poblacion[np.argmax(fitness)]
 # Graficar la solución final
 plt.figure(figsize=(12, 6))
 plt.plot(x_axis, y_axis, label='Spline cúbica')
-plt.plot(mejor_individuo, splinecubica(mejor_individuo), 'rx', label='Soportes optimizados')
+plt.plot(mejor_individuo, splinecubica(mejor_individuo), 'rx', label='Soportes optimizados iniciso a')
 plt.xlabel('Distancia')
 plt.ylabel('Altura')
 plt.title('Disposición optimizada de 20 soportes')

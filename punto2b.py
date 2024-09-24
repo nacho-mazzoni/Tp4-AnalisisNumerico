@@ -16,8 +16,8 @@ ySpline = spline_cubica(xSpline)
 
 
 # Parámetros del algoritmo genético
-tamano_poblacion = 100  # Tamaño de la población reducido
-num_generaciones = 200  # Número de generaciones reducido
+tamano_poblacion = 500  # Tamaño de la población reducido
+num_generaciones = 1000  # Número de generaciones reducido
 tasa_mutacion = 0.2  # Tasa de mutación
 distancia_minima = 10  # Distancia mínima entre soportes
 distancia_maxima = 20  # Distancia máxima entre soportes
@@ -112,7 +112,7 @@ for gen in range(num_generaciones):
     mejor_indice = np.argmax(fitness)
     mejor_fitness = 1 / (fitness[mejor_indice] + 1e-6) - 1e-6
     
-    if gen % 10 == 0:  # Imprimir progreso cada 10 generaciones
+    if gen % 100 == 0:  # Imprimir progreso cada 100 generaciones
         print(f"Generación {gen}: Mejor fitness = {mejor_fitness:.2f}")
 
     # Crear la nueva generación
@@ -143,7 +143,7 @@ mejor_individuo = poblacion[np.argmax(fitness)]
 # Graficar la solución final
 plt.figure(figsize=(12, 6))
 plt.plot(xSpline, ySpline, label='Spline cúbica')
-plt.plot(mejor_individuo, spline_cubica(mejor_individuo), 'rx', label='Soportes optimizados')
+plt.plot(mejor_individuo, spline_cubica(mejor_individuo), 'rx', label='Soportes optimizados inciso b')
 plt.xlabel('Distancia')
 plt.ylabel('Altura')
 plt.title('Disposición optimizada de 20 soportes')
