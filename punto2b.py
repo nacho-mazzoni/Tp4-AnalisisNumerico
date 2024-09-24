@@ -151,10 +151,14 @@ plt.legend()
 plt.grid(True)
 plt.show()
 
+#defino funcion para calcular las alturas
+def calcular_Alturas(individuo):
+    return np.sum(spline_cubica(individuo))
+
 # Imprimir la mejor solución encontrada
 print("Mejor disposición de soportes:", mejor_individuo)
 print("Número de soportes:", len(mejor_individuo))
-print("Altura total:", calcular_aptitud(mejor_individuo))
+print("Altura total:", calcular_Alturas(mejor_individuo))
 
 # Verificar las separaciones
 separaciones = np.diff(mejor_individuo)
