@@ -21,6 +21,6 @@ plt.show()
 
 #ejercicio e puntos en 75 y 225 para spline
 print("altura en distancia 75 para spline")
-print(splineCubica(75))
+print(splinecubica(75))
 print("altura en distancia 225 para spline")
-print(splineCubica(225))
+print(splinecubica(225))
