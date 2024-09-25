@@ -52,7 +52,8 @@ def generar_individuo_valido(min_separacion, max_separacion, num_soportes):
 def calcular_aptitud(individuo):
     y = spline_cubica(individuo)
     w = np.abs(curvatura(individuo))
-    return np.sum(y * w) / np.sum(w)
+    yPonderada = np.sum(y*w)/np.sum(w)
+    return np.sum(yPonderada)
 
 # Inicialización de la población
 poblacion = [generar_individuo_valido(distancia_minima, distancia_maxima, num_soportes) for _ in range(tamano_poblacion)]
@@ -165,3 +166,18 @@ separaciones = np.diff(mejor_individuo)
 print("Separaciones entre soportes:", separaciones)
 print("Separación mínima:", np.min(separaciones))
 print("Separación máxima:", np.max(separaciones))
+
+# Graficar la población inicial antes de comenzar el bucle genético
+plt.figure(figsize=(12, 6))
+plt.plot(xSpline, ySpline, label='Spline cúbica')  # Graficar la curva de la pista
+
+# Graficar los individuos de la población inicial
+for idx, individuo in enumerate(poblacion):
+    plt.plot(individuo, spline_cubica(individuo), 'o-', alpha=0.5, label=f'Individuo {idx+1}' if idx == 0 else "")  # Agregamos etiqueta solo para el primer individuo
+
+plt.title("Población inicial")
+plt.xlabel('Distancia')
+plt.ylabel('Altura')
+plt.grid(True)
+plt.legend()
+plt.show()
